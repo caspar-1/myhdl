@@ -172,6 +172,8 @@ from .conversion import toVHDL
 
 from ._tristate import Tristate
 
+from ._SignalCollection import SignalCollection
+
 
 __all__ = ["bin",
            "concat",
@@ -204,5 +206,6 @@ __all__ = ["bin",
            "toVerilog",
            "toVHDL",
            "conversion",
-           "Tristate"
+           "Tristate",
+           "SignalCollection"
            ]

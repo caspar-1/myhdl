@@ -275,6 +275,15 @@ class _Block(object):
                 self.memdict[n] = m
                 if n in usedlosdict:
                     m._used = True
+            if hasattr(v, '__class__'):
+                try:
+                    for _k,_v in v.get_signals():
+                        if isinstance(_v, _Signal):
+                            self.sigdict[_k] = _v
+                        if _k in usedsigdict:
+                            _v._markUsed()
+                except:
+                    pass
 
     def _inferInterface(self):
         from myhdl.conversion._analyze import _analyzeTopFunc
